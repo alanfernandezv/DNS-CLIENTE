@@ -34,5 +34,40 @@ Descripciones de las opciones del docker-compose.yml:
         external:true red externa.
         
         
+        Estos ajustes serian del volumen del contenedor:
+        
+        Configuracion de la Zona DNS:
+          sudo apt install bind9: Instalacion de bind9.
+          /etc/bind/named.conf.options: para poner una direccion ip del DNS:
+          forwarders {
+             8.8.8.8;
+             4.4.4.4;
+            };
+          
+        /etc/bind/named.conf.local:Configuracion de la zona del nombre.
+        zone "baram27.com" {
+           type master;
+           file "/etc/bind/db.baram27.com";
+            };
+            
+      
+      Este seria el contenedor del servidor:
+      sudo cp /etc/bind/db.local /etc/bind/db.example.com:Por defecto viene otros red ip, y nombre, habrá que configurar el nombre la IP y el CNAME.
+     
+     ;
+; BIND data file for local loopback interface
+;
+$TTL	604800
+@	IN	SOA	baram27.com. root.baram27.com. (
+			      2		; Serial
+			 604800		; Refresh
+			  86400		; Retry
+			2419200		; Expire
+			 604800 )	; Negative Cache TTL
+;
+@	IN	NS	baram27.com.
+@	IN	A	10.1.0.2
+@	IN	AAAA	::1
+ns      IN      A       10.1.0.2
 
-
+p
