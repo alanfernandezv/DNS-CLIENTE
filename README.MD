@@ -71,3 +71,25 @@ $TTL	604800
 ns      IN      A       10.1.0.2
 
 p
+
+En el cliente:
+sudo apt install dnsutils:Instalo dnsutils.
+
+root@ec754e55b1fd:/# dig baram27.com  :Hago una comprobacion con el comando dig si funciona la zona creada llamada baram27.
+
+; <<>> DiG 9.16.1-Ubuntu <<>> baram27.com
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NXDOMAIN, id: 53547
+;; flags: qr rd ra; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 65494
+;; QUESTION SECTION:
+;baram27.com.                   IN      A
+
+;; Query time: 48 msec
+;; SERVER: 127.0.0.11#53(127.0.0.11)
+;; WHEN: Wed Dec 15 16:34:58 CET 2021
+;; MSG SIZE  rcvd: 40
+
